@@ -6,14 +6,28 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+" =================================================
+" Plugin Manager
+" =================================================
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+" =================================================
+" Color scheme
+" =================================================
 " Solarized color color scheme
 Plugin 'altercation/vim-colors-solarized'
 
+" =================================================
+" IDE
+" =================================================
 " NERD Tree : File navigator
 Plugin 'scrooloose/nerdtree'
+" one nerd tree
+Plugin 'jistr/vim-nerdtree-tabs'
+
+" TagBar : A class outline viewer for Vim
+Plugin 'majutsushi/tagbar'
 
 " Lean & mean status/tabline for vim that's light as air.
 Plugin 'bling/vim-airline'
@@ -21,41 +35,63 @@ Plugin 'bling/vim-airline'
 " CtrlP : Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
 Plugin 'kien/ctrlp.vim'
 
-" Easy Motion : Vim motions on speed! 
-Plugin 'easymotion/vim-easymotion'
-
-" Syntastic is a syntax checking plugin for Vim 
-Plugin 'scrooloose/syntastic'
-
 " fugitive : Git plugin for vim
 " Plugin 'tpope/vim-fugitive' 
 
-" TagBar : A class outline viewer for Vim
-Plugin 'majutsushi/tagbar'
-
-" Supertab : allows you to use <Tab> for all your insert completion needs
-" Plugin 'ervandew/supertab'
+" =================================================
+" Control Helper
+" =================================================
+" Easy Motion : Vim motions on speed! 
+Plugin 'easymotion/vim-easymotion'
 
 " vim-multiple-cursors : Sublime Text style multiple selections
 Plugin 'terryma/vim-multiple-cursors'
 
-" YouCompleteMe : fast code completion engine for Vim. 
-Plugin 'Valloric/YouCompleteMe'
-
-" HTML5 + inline SVG omnicomplete function, indent and syntax for Vim.
-Plugin 'othree/html5.vim'
+" Vim plugin for intensely orgasmic commenting
+Plugin 'scrooloose/nerdcommenter'
 
 " provides to easily delete, change and add such surroundings in pairs.
 Plugin 'tpope/vim-surround'
 
-" Vim plugin for intensely orgasmic commenting
-Plugin 'scrooloose/nerdcommenter'
-
 " repeat
 Plugin 'tpope/vim-repeat'
 
+" 符號自動補齊 
+Plugin 'Raimondi/delimitMate'
+
 " zend coding
 Plugin 'mattn/emmet-vim'
+
+" =================================================
+" Auto Complete
+" =================================================
+" Supertab : allows you to use <Tab> for all your insert completion needs
+" Plugin 'ervandew/supertab'
+
+" YouCompleteMe : fast code completion engine for Vim. 
+Plugin 'Valloric/YouCompleteMe'
+ 
+" Track the engine.
+Plugin 'SirVer/ultisnips'
+
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
+
+" =================================================
+" Syntax
+" =================================================
+" Syntastic is a syntax checking plugin for Vim 
+Plugin 'scrooloose/syntastic'
+
+" HTML5 + inline SVG omnicomplete function, indent and syntax for Vim.
+Plugin 'othree/html5.vim'
+
+" javascript syntax
+" Plugin 'pangloss/vim-javascript'
+Plugin 'jelera/vim-javascript-syntax'
+
+" Various snippets for developing node.js from vim
+Plugin 'jamescarr/snipmate-nodejs'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -115,17 +151,18 @@ let g:airline#extensions#tabline#enabled = 1
 " =====================================================================
 " NERDTree
 map <F7> :NERDTreeToggle<CR>
+
 " EasyMotion
 map , <Plug>(easymotion-prefix)
+
 " TagBar
 map <F8> :TagbarToggle<CR>
+
 " CtrlP Buffer
 map <C-b> :CtrlPBuffer<CR>
+
 " Next Buffer
 noremap <C-m> :bnext<CR>
-
-" Next Tab 
-" noremap <C-y> :tabnext<CR>
 
 " 設定 ,d 為關閉目前buffer而不關掉視窗
 nmap ,d :bp<bar>sp<bar>bn<bar>bd<CR>
@@ -137,25 +174,19 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " Terminal Vim 複製貼上支援 F1貼上 F2複製
-nmap <F1> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
-imap <F1> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
-nmap <F2> :.w !pbcopy<CR><CR>
-vmap <F2> :w !pbcopy<CR><CR>
+nmap <F1> "*y
+nmap <F2> "*p
 
 " YouCompleteMe
-let g:ycm_min_num_of_chars_for_completion = 3 
-let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_complete_in_comments = 1
-let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
-" 比较喜欢用tab来选择补全...
-function! MyTabFunction ()
-	let line = getline('.')
-	let substr = strpart(line, -1, col('.')+1)
-	let substr = matchstr(substr, "[^ \t]*$")
-	if strlen(substr) == 0
-		return "\<tab>"
-	endif
-	return pumvisible() ? "\<c-n>" : "\<c-x>\<c-o>"
-endfunction
-inoremap <tab> <c-r>=MyTabFunction()<cr>
+" let g:ycm_min_num_of_chars_for_completion = 3 
+" let g:ycm_autoclose_preview_window_after_completion=1
+" let g:ycm_complete_in_comments = 1
+" let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
+" let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+"let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" If you want :UltiSnipsEdit to split your window.
+"let g:UltiSnipsEditSplit="vertical"
