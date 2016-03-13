@@ -3,6 +3,8 @@
 ### 執行安裝
 安裝 .vimrc
 ```
+git clone https://github.com/ox3e223c/vimrc.git
+cd ./vimrc
 sh install.sh
 ```
 
