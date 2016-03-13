@@ -33,10 +33,14 @@ Plugin 'majutsushi/tagbar'
 Plugin 'bling/vim-airline'
 
 " CtrlP : Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-Plugin 'kien/ctrlp.vim'
+" Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " fugitive : Git plugin for vim
-" Plugin 'tpope/vim-fugitive' 
+Plugin 'tpope/vim-fugitive' 
+
+" ryanoasis/vim-devicons
+Plugin 'ryanoasis/vim-devicons'  
 
 " =================================================
 " Control Helper
@@ -144,8 +148,8 @@ colorscheme solarized
 " =====================================================================
 " Plugin - airline
 " =====================================================================
-set guifont=Source_Code_Pro_for_Powerline:h14
 set laststatus=2
+set encoding=utf8
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
@@ -157,25 +161,40 @@ let g:airline#extensions#tabline#enabled = 1
 let NERDTreeShowHidden=1
 
 " =====================================================================
+" Plugin - 縮排提示線 vim indent guides
+" =====================================================================
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+let g:indent_guides_enable_on_vim_startup = 1
+
+" =====================================================================
 " Key Mappings
 " =====================================================================
+
+" 設定空白鍵為 Leader 鍵
+let mapleader = " "
+
+" 關閉 buffer 但不關掉視窗
+noremap <Leader>w :bp<bar>sp<bar>bn<bar>bd<CR>
+" 儲存檔案 
+noremap <Leader>s :w<CR>
+" 退出 vim 
+noremap <Leader>q :q!<CR>
+" 複製
+noremap <Leader>c "*y
+" 貼上
+noremap <Leader>v "*p
+
 " NERDTree
-map <F7> :NERDTreeToggle<CR>
-
-" EasyMotion
-map , <Plug>(easymotion-prefix)
-
+noremap <Leader>n :NERDTreeToggle<CR>
 " TagBar
-map <F8> :TagbarToggle<CR>
-
-" CtrlP Buffer
-map <C-b> :CtrlPBuffer<CR>
-
+noremap <Leader>t :TagbarToggle<CR>
+" jsBeaufuty
+noremap <Leader>f :call JsBeautify()<CR>
+" EasyMotion
+"map , <Plug>(easymotion-prefix)
 " Next Buffer
 noremap <C-m> :bnext<CR>
-
-" 設定 ,d 為關閉目前buffer而不關掉視窗
-nmap ,d :bp<bar>sp<bar>bn<bar>bd<CR>
 
 " Split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -183,29 +202,4 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" Terminal Vim 複製貼上支援 F1貼上 F2複製
-nmap <F1> "*y
-nmap <F2> "*p
-
-" YouCompleteMe
-" let g:ycm_min_num_of_chars_for_completion = 3 
-" let g:ycm_autoclose_preview_window_after_completion=1
-" let g:ycm_complete_in_comments = 1
-" let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
-" let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
-
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-" If you want :UltiSnipsEdit to split your window.
-"let g:UltiSnipsEditSplit="vertical"
-
-" jsBeaufuty
-nmap ,f :call JsBeautify()<CR>
-
-" 縮排提示線風格
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
-let g:indent_guides_enable_on_vim_startup = 1
 
