@@ -191,8 +191,6 @@ noremap <Leader>n :NERDTreeToggle<CR>
 noremap <Leader>t :TagbarToggle<CR>
 " jsBeaufuty
 noremap <Leader>f :call JsBeautify()<CR>
-" EasyMotion
-"map , <Plug>(easymotion-prefix)
 " Next Buffer
 noremap <C-m> :bnext<CR>
 
