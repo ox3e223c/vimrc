@@ -22,6 +22,8 @@ vim
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py
 ```
+安裝字體
+[nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
 
 ## Hotkey
 預設空白鍵為 Leader 鍵
