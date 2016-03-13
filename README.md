@@ -2,17 +2,24 @@
 ## 安裝步驟 
 ### 執行安裝
 安裝 .vimrc
-    sh install.sh
+```
+sh install.sh
+```
 
 ### 安裝插件
 進入 vim
-    vim
+```
+vim
+```
 執行插件安裝 
-    :PluginInstall
-
+```
+:PluginInstall
+```
 編譯 YouCompleteMe
-    cd ~/.vim/bundle/YouCompleteMe
-    ./install.py
+```
+cd ~/.vim/bundle/YouCompleteMe
+./install.py
+```
 
 ## Hotkey
 預設空白鍵為 Leader 鍵
