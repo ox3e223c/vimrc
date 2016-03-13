@@ -90,8 +90,17 @@ Plugin 'othree/html5.vim'
 " Plugin 'pangloss/vim-javascript'
 Plugin 'jelera/vim-javascript-syntax'
 
+" javascript 縮排格式化
+Plugin 'maksimr/vim-jsbeautify'
+
 " Various snippets for developing node.js from vim
 Plugin 'jamescarr/snipmate-nodejs'
+
+" 對其文字表格或者語法對齊 :Tabularize /=
+Plugin 'godlygeek/tabular'
+
+" 縮排提示線
+Plugin 'nathanaelkane/vim-indent-guides'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -145,6 +154,7 @@ let g:airline#extensions#tabline#enabled = 1
 " =====================================================================
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+let NERDTreeShowHidden=1
 
 " =====================================================================
 " Key Mappings
@@ -190,3 +200,12 @@ nmap <F2> "*p
 "let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 "let g:UltiSnipsEditSplit="vertical"
+
+" jsBeaufuty
+nmap ,f :call JsBeautify()<CR>
+
+" 縮排提示線風格
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+let g:indent_guides_enable_on_vim_startup = 1
+
