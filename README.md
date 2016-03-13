@@ -23,7 +23,7 @@ cd ~/.vim/bundle/YouCompleteMe
 
 ## Hotkey
 預設空白鍵為 Leader 鍵
-
+```
 <Leader>w     關閉 buffer
 <Leader>s     儲存檔案 
 <Leader>q     退出 vim 
@@ -39,4 +39,4 @@ cd ~/.vim/bundle/YouCompleteMe
 <C-K>         移動到上面的視窗 
 <C-L>         移動到右邊的視窗 
 <C-H>         移動到左邊的視窗 
-
+```
