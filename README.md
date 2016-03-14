@@ -37,7 +37,8 @@ cd ~/.vim/bundle/YouCompleteMe
 <Leader>n     開啟,關閉 NERDTree
 <Leader>t     開啟,關閉 Tagbar
 <Leader>f     格式化 JavaScript
-<C-m>         切換 Buffer
+<Left>        下一個 Buffer
+<Right>       上一個 Buffer
 
 <C-J>         移動到下面的視窗 
 <C-K>         移動到上面的視窗 

@@ -200,8 +200,9 @@ noremap <Leader>n :NERDTreeToggle<CR>
 noremap <Leader>t :TagbarToggle<CR>
 " jsBeaufuty
 noremap <Leader>f :call JsBeautify()<CR>
-" Next Buffer
-noremap <C-m> :bnext<CR>
+" Buffer
+noremap <Left> :bnext<CR>
+noremap <Right> :bprevious<CR>
 
 " Split navigations
 nnoremap <C-J> <C-W><C-J>
