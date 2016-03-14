@@ -201,8 +201,10 @@ noremap <Leader>t :TagbarToggle<CR>
 " jsBeaufuty
 noremap <Leader>f :call JsBeautify()<CR>
 " Buffer
-noremap <Left> :bnext<CR>
-noremap <Right> :bprevious<CR>
+noremap <Right> :bnext<CR>
+noremap <Left> :bprevious<CR>
+inoremap <Right> <ESC>:bnext<CR>
+inoremap <Left> <ESC>:bprevious<CR>
 
 " Split navigations
 nnoremap <C-J> <C-W><C-J>
