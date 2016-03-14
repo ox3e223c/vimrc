@@ -20,7 +20,7 @@ vim
 編譯 YouCompleteMe
 ```
 cd ~/.vim/bundle/YouCompleteMe
-./install.py
+./install.py --tern-completer
 ```
 安裝字體
 [nerd-fonts](https://github.com/ryanoasis/nerd-fonts)

@@ -23,6 +23,7 @@ Plugin 'altercation/vim-colors-solarized'
 " =================================================
 " NERD Tree : File navigator
 Plugin 'scrooloose/nerdtree'
+
 " one nerd tree
 Plugin 'jistr/vim-nerdtree-tabs'
 
@@ -33,7 +34,6 @@ Plugin 'majutsushi/tagbar'
 Plugin 'bling/vim-airline'
 
 " CtrlP : Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-" Plugin 'kien/ctrlp.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 
 " fugitive : Git plugin for vim
@@ -41,6 +41,9 @@ Plugin 'tpope/vim-fugitive'
 
 " ryanoasis/vim-devicons
 Plugin 'ryanoasis/vim-devicons'  
+
+" This plugin provides a start screen for Vim and Neovim
+Plugin 'mhinz/vim-startify'
 
 " =================================================
 " Control Helper
@@ -69,9 +72,6 @@ Plugin 'mattn/emmet-vim'
 " =================================================
 " Auto Complete
 " =================================================
-" Supertab : allows you to use <Tab> for all your insert completion needs
-" Plugin 'ervandew/supertab'
-
 " YouCompleteMe : fast code completion engine for Vim. 
 Plugin 'Valloric/YouCompleteMe'
  
@@ -91,7 +91,6 @@ Plugin 'scrooloose/syntastic'
 Plugin 'othree/html5.vim'
 
 " javascript syntax
-" Plugin 'pangloss/vim-javascript'
 Plugin 'jelera/vim-javascript-syntax'
 
 " javascript 縮排格式化
@@ -113,19 +112,29 @@ filetype plugin indent on    " required
 " =====================================================================
 " Basic Settings
 " =====================================================================
-set nu                         " 顯示行號
 syntax on                      " 顯示語法高亮
+set nu                         " 顯示行號
+set encoding=utf8              " 文件編碼 
 set clipboard=unnamed          " MacVim剪貼簿支援
 set mouse=a                    " 支援滑鼠
 set wildmode=list:longest,full " 命令列提示
+
+" Tab
 set expandtab                  " 使用空白鍵代替Tab換行
+set smarttab                   "
 set shiftwidth=4               " 操作 << 指令與 >> 指令縮排的字元數
 set tabstop=4                  " tab 字元所佔的寬度
 set softtabstop=4              " tab 字元實際所佔有的寬度
+
 set directory=$HOME/.vim/swap/ " 設定swap檔案路徑
 "set nowrap                     " 不換行顯示
 set ignorecase                 " 忽略大小寫
 set hidden                     " 允許緩衝區不儲存切換
+set hlsearch                   " 搜尋高亮顯示"
+
+" 縮排
+set autoindent                 "自動縮排
+set smartindent
 
 " filetype plugin on
 " set omnifunc=syntaxcomplete#Complete
@@ -148,14 +157,14 @@ colorscheme solarized
 " =====================================================================
 " Plugin - airline
 " =====================================================================
-set laststatus=2
-set encoding=utf8
+set laststatus=2 " 開啟 statusline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
 " =====================================================================
 " Plugin - NERDTree
 " =====================================================================
+" 啟動時自動開啟 NERDTree
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let NERDTreeShowHidden=1
@@ -200,6 +209,8 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-
+" 自動換行移動修正
+map j gj
+map k gk
 
 
