@@ -93,6 +93,9 @@ Plugin 'othree/html5.vim'
 " javascript syntax
 Plugin 'jelera/vim-javascript-syntax'
 
+" JavaScript 語法檢查
+Plugin 'ternjs/tern_for_vim'
+
 " javascript 縮排格式化
 Plugin 'maksimr/vim-jsbeautify'
 
@@ -205,6 +208,16 @@ noremap <Right> :bnext<CR>
 noremap <Left> :bprevious<CR>
 inoremap <Right> <ESC>:bnext<CR>
 inoremap <Left> <ESC>:bprevious<CR>
+nnoremap <Leader>1 :1b<CR>
+nnoremap <Leader>2 :2b<CR>
+nnoremap <Leader>3 :3b<CR>
+nnoremap <Leader>4 :4b<CR>
+nnoremap <Leader>5 :5b<CR>
+nnoremap <Leader>6 :6b<CR>
+nnoremap <Leader>7 :7b<CR>
+nnoremap <Leader>8 :8b<CR>
+nnoremap <Leader>9 :9b<CR>
+nnoremap <Leader>0 :10b<CR>
 
 " Split navigations
 nnoremap <C-J> <C-W><C-J>

@@ -1,7 +1,11 @@
 # Lex' vimrc
-## 安裝步驟 
-### 執行安裝
-安裝 .vimrc
+## 安裝 
+### 安裝最新版本 vim
+```
+brew install vim
+```
+
+### 安裝 .vimrc
 ```
 git clone https://github.com/ox3e223c/vimrc.git
 cd ./vimrc
@@ -9,21 +13,29 @@ sh install.sh
 ```
 
 ### 安裝插件
-進入 vim
+1. 進入 vim
 ```
 vim
 ```
-執行插件安裝 
+2. 執行插件安裝 
 ```
 :PluginInstall
 ```
-編譯 YouCompleteMe
+
+### 編譯 YouCompleteMe
 ```
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --tern-completer
 ```
-安裝字體
+
+### 安裝字體
 [nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
+
+### 安裝 Tern for Vim
+```
+cd ~/.vim/bundle/tern_for_vim
+npm install
+```
 
 ## Hotkey
 預設空白鍵為 Leader 鍵
