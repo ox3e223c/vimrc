@@ -125,7 +125,7 @@ set wildmode=list:longest,full " 命令列提示
 " Tab
 set expandtab                  " 使用空白鍵代替Tab換行
 set smarttab                   "
-set shiftwidth=4               " 操作 << 指令與 >> 指令縮排的字元數
+set shiftwidth=2               " 操作 << 指令與 >> 指令縮排的字元數
 set tabstop=4                  " tab 字元所佔的寬度
 set softtabstop=4              " tab 字元實際所佔有的寬度
 
@@ -175,9 +175,9 @@ let NERDTreeShowHidden=1
 " =====================================================================
 " Plugin - 縮排提示線 vim indent guides
 " =====================================================================
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
-let g:indent_guides_enable_on_vim_startup = 1
+"let g:indent_guides_start_level = 2
+"let g:indent_guides_guide_size = 1
+"let g:indent_guides_enable_on_vim_startup = 1
 
 " =====================================================================
 " Key Mappings
