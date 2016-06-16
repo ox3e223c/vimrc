@@ -42,9 +42,6 @@ Plugin 'tpope/vim-fugitive'
 " ryanoasis/vim-devicons
 Plugin 'ryanoasis/vim-devicons'  
 
-" This plugin provides a start screen for Vim and Neovim
-Plugin 'mhinz/vim-startify'
-
 " =================================================
 " Control Helper
 " =================================================
