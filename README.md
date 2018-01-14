@@ -12,6 +12,11 @@ cd ./vimrc
 sh install.sh
 ```
 
+### 安裝 Vundle
+```
+https://github.com/VundleVim/Vundle.vim
+```
+
 ### 安裝插件
 1. 進入 vim
 ```
@@ -37,6 +42,11 @@ cd ~/.vim/bundle/tern_for_vim
 npm install
 ```
 
+### 建立 swap 資料夾
+```
+cd ~/.vim
+mkdir swap
+```
 ## Hotkey
 預設空白鍵為 Leader 鍵
 ```
