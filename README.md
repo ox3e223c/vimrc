@@ -12,9 +12,10 @@ cd ./vimrc
 sh install.sh
 ```
 
-### 安裝 Vundle
+### 安裝 vim-plug
 ```
-https://github.com/VundleVim/Vundle.vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
 ### 安裝插件
@@ -24,17 +25,17 @@ vim
 ```
 2. 執行插件安裝 
 ```
-:PluginInstall
+:PlugInstall
 ```
+
+### 安裝字體
+[nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
 
 ### 編譯 YouCompleteMe
 ```
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --tern-completer
 ```
-
-### 安裝字體
-[nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
 
 ### 安裝 Tern for Vim
 ```

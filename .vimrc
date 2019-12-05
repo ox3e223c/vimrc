@@ -1,113 +1,61 @@
-" =====================================================================
-" Plugin - Vundle
-" =====================================================================
-set nocompatible              " be iMproved, required
-filetype off                  " required
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" =================================================
-" Plugin Manager
-" =================================================
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
 
 " =================================================
 " Color scheme
 " =================================================
-" Solarized color color scheme
-Plugin 'altercation/vim-colors-solarized'
+Plug 'altercation/vim-colors-solarized' " Solarized color color scheme
 
 " =================================================
 " IDE
 " =================================================
-" NERD Tree : File navigator
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }  " NERD Tree : File navigator
+Plug 'jistr/vim-nerdtree-tabs'                           " one nerd tree
+Plug 'majutsushi/tagbar'                                 " TagBar : A class outline viewer for Vim
+Plug 'bling/vim-airline'                                 " Lean & mean status/tabline for vim that's light as air.
+Plug 'ctrlpvim/ctrlp.vim'                                " CtrlP : Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
+Plug 'tpope/vim-fugitive'                                " fugitive : Git plugin for vim
+Plug 'ryanoasis/vim-devicons'                            " ryanoasis/vim-devicons
 
-" one nerd tree
-Plugin 'jistr/vim-nerdtree-tabs'
+" Typescript
+Plug 'Quramy/tsuquyomi'
+Plug 'leafgarland/typescript-vim'
+Plug 'HerringtonDarkholme/yats.vim'
 
-" TagBar : A class outline viewer for Vim
-Plugin 'majutsushi/tagbar'
-
-" Lean & mean status/tabline for vim that's light as air.
-Plugin 'bling/vim-airline'
-
-" CtrlP : Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-Plugin 'ctrlpvim/ctrlp.vim'
-
-" fugitive : Git plugin for vim
-Plugin 'tpope/vim-fugitive' 
-
-" ryanoasis/vim-devicons
-Plugin 'ryanoasis/vim-devicons'  
 
 " =================================================
 " Control Helper
 " =================================================
-" Easy Motion : Vim motions on speed! 
-Plugin 'easymotion/vim-easymotion'
-
-" vim-multiple-cursors : Sublime Text style multiple selections
-Plugin 'terryma/vim-multiple-cursors'
-
-" Vim plugin for intensely orgasmic commenting
-Plugin 'scrooloose/nerdcommenter'
-
-" provides to easily delete, change and add such surroundings in pairs.
-Plugin 'tpope/vim-surround'
-
-" repeat
-Plugin 'tpope/vim-repeat'
-
-" 符號自動補齊 
-Plugin 'Raimondi/delimitMate'
-
-" zend coding
-Plugin 'mattn/emmet-vim'
+" Plug 'easymotion/vim-easymotion' " Easy Motion : Vim motions on speed! 
+" Plug 'terryma/vim-multiple-cursors' " vim-multiple-cursors : Sublime Text style multiple selections
+" Plug 'scrooloose/nerdcommenter' " Vim plugin for intensely orgasmic commenting
+" Plug 'tpope/vim-surround' " provides to easily delete, change and add such surroundings in pairs.
+" Plug 'tpope/vim-repeat' " repeat
+" Plug 'Raimondi/delimitMate' " 符號自動補齊 
 
 " =================================================
 " Auto Complete
 " =================================================
 " YouCompleteMe : fast code completion engine for Vim. 
-Plugin 'Valloric/YouCompleteMe'
- 
 " Track the engine.
-Plugin 'SirVer/ultisnips'
-
-" Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
+" Plug 'honza/vim-snippets' " Snippets are separated from the engine. Add this if you want them:
 
 " =================================================
 " Syntax
 " =================================================
-" Syntastic is a syntax checking plugin for Vim 
-Plugin 'scrooloose/syntastic'
+" Plug 'scrooloose/syntastic' " Syntastic is a syntax checking plugin for Vim 
+" Plug 'othree/html5.vim' " HTML5 + inline SVG omnicomplete function, indent and syntax for Vim.
+" Plug 'jelera/vim-javascript-syntax' " javascript syntax
+" Plug 'ternjs/tern_for_vim' " JavaScript 語法檢查
+" Plug 'maksimr/vim-jsbeautify' " javascript 縮排格式化
+" Plug 'jamescarr/snipmate-nodejs' " Various snippets for developing node.js from vim
+" Plug 'godlygeek/tabular' " 對其文字表格或者語法對齊 :Tabularize /=
+" Plug 'nathanaelkane/vim-indent-guides' " 縮排提示線
 
-" HTML5 + inline SVG omnicomplete function, indent and syntax for Vim.
-Plugin 'othree/html5.vim'
-
-" javascript syntax
-Plugin 'jelera/vim-javascript-syntax'
-
-" JavaScript 語法檢查
-Plugin 'ternjs/tern_for_vim'
-
-" javascript 縮排格式化
-Plugin 'maksimr/vim-jsbeautify'
-
-" Various snippets for developing node.js from vim
-Plugin 'jamescarr/snipmate-nodejs'
-
-" 對其文字表格或者語法對齊 :Tabularize /=
-Plugin 'godlygeek/tabular'
-
-" 縮排提示線
-Plugin 'nathanaelkane/vim-indent-guides'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+" Initialize plugin system
+call plug#end()
 
 " =====================================================================
 " Basic Settings
@@ -159,22 +107,6 @@ colorscheme solarized
 " =====================================================================
 set laststatus=2 " 開啟 statusline
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-
-" =====================================================================
-" Plugin - NERDTree
-" =====================================================================
-" 啟動時自動開啟 NERDTree
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-let NERDTreeShowHidden=1
-
-" =====================================================================
-" Plugin - 縮排提示線 vim indent guides
-" =====================================================================
-"let g:indent_guides_start_level = 2
-"let g:indent_guides_guide_size = 1
-"let g:indent_guides_enable_on_vim_startup = 1
 
 " =====================================================================
 " Key Mappings
@@ -225,5 +157,3 @@ nnoremap <C-H> <C-W><C-H>
 " 自動換行移動修正
 map j gj
 map k gk
-
-
