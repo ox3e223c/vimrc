@@ -7,6 +7,8 @@ call plug#begin('~/.vim/plugged')
 " Color scheme
 " =================================================
 Plug 'altercation/vim-colors-solarized' " Solarized color color scheme
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'morhetz/gruvbox'
 
 " =================================================
 " IDE
@@ -97,10 +99,12 @@ set smartindent
 " =====================================================================
 " Plugin - Solarized dark solorschme
 " =====================================================================
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-set background=dark
-colorscheme solarized
+"let g:solarized_termcolors=256
+"let g:solarized_termtrans=1
+"set background=dark
+"colorscheme solarized
+"colorscheme dracula
+colorscheme gruvbox
 
 " =====================================================================
 " Plugin - airline
