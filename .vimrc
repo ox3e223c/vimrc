@@ -101,7 +101,7 @@ set smartindent
 " =====================================================================
 "let g:solarized_termcolors=256
 "let g:solarized_termtrans=1
-"set background=dark
+set background=dark
 "colorscheme solarized
 "colorscheme dracula
 colorscheme gruvbox
